@@ -17,4 +17,4 @@ In this example we have a 5xx cloudwatch metric alarm, presumably hooked up to a
 The other option the sns topic -> lambda gives us is that we can trigger a quick manual failover without having to go in and muck with the R53 records manually. 
 
 
-![Failover Diagram](./failover.png)
+![Failover Diagram](./assets/failover.png)

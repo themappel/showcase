@@ -14,4 +14,4 @@ Check out the failover section for more info on how that failover records work
 
 
 
-![Traffic Routing Diagram](./trd.png)
+![Traffic Routing Diagram](./assets/trd.png)
