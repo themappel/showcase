@@ -16,19 +16,19 @@ note: LSI's (local secondary indexes) were also reviewed, but were quickly ruled
 
 
 
-Below is a diagram I made explaining how GSI's work in the context of our design to a technical audience. A GSI's is essentially a projection of the data in the base table, where we choose field(s) to use as the new partition key for the read pattern, as well as a sort key. When creating the GSI, we have the option to select columns from the base table to carry over, with the constraint that columns used in the search key of the table must be part of that selection. 
+Below is a diagram I made explaining how GSI's work in the context of our design to a technical audience. A GSI is essentially a projection of the data in the base table, where we choose field(s) to use as the new partition key for the read pattern, as well as a sort key. When creating the GSI, we have the option to select columns from the base table to carry over, with the constraint that columns used in the search key of the table must be part of that selection. 
 
 
-We can see that duplicate search keys in the GSI are allowed, because these rows in the GSI are just projections of the real data in the base table, and are linked. So a change to a row in the base table will propagate (in an eventually consistent manner) to the linked row in the GSI. 
+We can see that duplicate search keys in the GSI are allowed, because these rows in the GSI are just projections of the real data in the base table (which we known have unique keys) and are linked. So a change to a row in the base table will propagate (in an eventually consistent manner) to the linked row in the GSI. 
 
 
 A few cost considerations with GSI's (as they work in AWS DynamoDB) -> 
 - write and storage costs increase 
   - whatever you write to the GSI incurs cost just like a write to the base table
-  - If you choose to project every field to the GSI you can consider your write cost to approximately double
+  - If you choose to project every field to the GSI you can consider your write/storage cost to approximately double
 - Read's are 1/2 the cost of the base table 
   - This is because we are performing eventually consistent reads on the GSI
-- 
+  
 
 
 ![low level GSI Diagram](./assets/GSILowLevel.png)
