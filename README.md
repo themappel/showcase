@@ -6,6 +6,8 @@ Hello, this repository shows a few projects I've lead and implemented over the y
 All diagrams were created personally by me, and are purposefully general and high-level, to protect confidentiality. The only code showcased in this repository is code that I own, and have written for personal projects. 
 
 
+links: \
+[https://www.linkedin.com/in/michael-appel98/](https://www.linkedin.com/in/michael-appel98/)
 
 
 
